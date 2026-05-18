@@ -963,7 +963,7 @@ static napi_value sdlSendDialogStatus(napi_env env, napi_callback_info info)
     return result;
 }
 
-static napi_value sdlOnBackground(napi_env env, napi_callback_info info)
+static napi_value sdlNotifyBackground(napi_env env, napi_callback_info info)
 {
     SDL_OnApplicationWillEnterBackground();
     SDL_OnApplicationDidEnterBackground();
@@ -973,12 +973,12 @@ static napi_value sdlOnBackground(napi_env env, napi_callback_info info)
     return result;
 }
 
-static napi_value sdlNotifyBackground(napi_env env, napi_callback_info info)
+static napi_value sdlOnBackground(napi_env env, napi_callback_info info)
 {
-    return sdlOnBackground(env, info);
+    return sdlNotifyBackground(env, info);
 }
 
-static napi_value sdlOnForeground(napi_env env, napi_callback_info info)
+static napi_value sdlNotifyForeground(napi_env env, napi_callback_info info)
 {
     SDL_OnApplicationWillEnterForeground();
     SDL_OnApplicationDidEnterForeground();
@@ -988,9 +988,9 @@ static napi_value sdlOnForeground(napi_env env, napi_callback_info info)
     return result;
 }
 
-static napi_value sdlNotifyForeground(napi_env env, napi_callback_info info)
+static napi_value sdlOnForeground(napi_env env, napi_callback_info info)
 {
-    return sdlOnForeground(env, info);
+    return sdlNotifyForeground(env, info);
 }
 
 static napi_value sdlOnLowMemory(napi_env env, napi_callback_info info)
